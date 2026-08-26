@@ -12,11 +12,49 @@ O projeto permite acompanhar o tempo médio entre a visita e a matrícula, ident
 
 ## Estrutura do banco
 
-O banco possui três tabelas principais:
+O banco de dados possui três tabelas principais:
 
-- visitantes
-- modalidades
-- consultores
+### visitantes
+
+Tabela principal do projeto, responsável por armazenar os dados das aulas experimentais e acompanhar o visitante até uma possível matrícula.
+
+Campos:
+
+- `id_visitante` - identificador do visitante
+- `nome` - nome do visitante
+- `telefone` - telefone para contato
+- `dt_visita` - data da visita
+- `dt_aula` - data da aula experimental
+- `horario` - horário da aula
+- `modalidade_id` - modalidade escolhida
+- `consultor_id` - consultor responsável
+- `matriculou` - informa se o visitante realizou a matrícula
+- `dt_matricula` - data em que ocorreu a matrícula
+
+### modalidades
+
+Tabela responsável por armazenar as modalidades disponíveis na academia.
+
+Campos:
+
+- `id_modalidade` - identificador da modalidade
+- `nome` - nome da modalidade
+
+### consultores
+
+Tabela responsável por armazenar os consultores responsáveis pelo atendimento.
+
+Campos:
+
+- `id_consultor` - identificador do consultor
+- `nome` - nome do consultor
+
+## Relacionamentos
+
+A tabela `visitantes` é a tabela central do banco e possui relacionamento com
+
+- `modalidades`, através de `modalidade_id`
+- `consultores`, através de `consultor_id`
 
 ## Objetivos do projeto
 
