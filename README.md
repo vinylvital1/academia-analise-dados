@@ -1,86 +1,79 @@
-# Projeto Academia - Análise de Aulas Experimentais
+# Projeto Academia: análise de aulas experimentais
 
-Projeto desenvolvido para uma academia com o objetivo de controlar aulas experimentais e analisar a conversão de visitantes em alunos.
+Sistema criado para registrar aulas experimentais e acompanhar a conversão de visitantes em alunos de uma academia.
 
-O projeto permite acompanhar o tempo médio entre a visita e a matrícula, identificar quais consultores possuem maior taxa de conversão e analisar quais modalidades são mais procuradas.
+Os dados permitem saber quanto tempo, em média, um visitante leva para fazer a matrícula, quais consultores apresentam as melhores taxas de conversão e quais modalidades recebem mais procura.
 
-## Tecnologias utilizadas
+## Tecnologias
 
 - MySQL
 - SQL
 - Python
 
-## Estrutura do banco
+## Banco de dados
 
-O banco de dados possui três tabelas principais:
+O banco possui três tabelas principais.
 
-### visitantes
+### `visitantes`
 
-Tabela principal do projeto, responsável por armazenar os dados das aulas experimentais e acompanhar o visitante até uma possível matrícula.
+Reúne os dados de cada visitante, desde o primeiro contato até uma possível matrícula.
 
-Campos:
+| Campo | Descrição |
+|---|---|
+| `id_visitante` | Identificador do visitante |
+| `nome` | Nome do visitante |
+| `telefone` | Telefone para contato |
+| `dt_visita` | Data da visita |
+| `dt_aula` | Data da aula experimental |
+| `horario` | Horário da aula |
+| `modalidade_id` | Modalidade escolhida |
+| `consultor_id` | Consultor responsável pelo atendimento |
+| `matriculou` | Indica se o visitante fez a matrícula |
+| `dt_matricula` | Data da matrícula |
 
-- `id_visitante` - identificador do visitante
-- `nome` - nome do visitante
-- `telefone` - telefone para contato
-- `dt_visita` - data da visita
-- `dt_aula` - data da aula experimental
-- `horario` - horário da aula
-- `modalidade_id` - modalidade escolhida
-- `consultor_id` - consultor responsável
-- `matriculou` - informa se o visitante realizou a matrícula
-- `dt_matricula` - data em que ocorreu a matrícula
+### `modalidades`
 
-### modalidades
+Armazena as modalidades oferecidas pela academia.
 
-Tabela responsável por armazenar as modalidades disponíveis na academia.
+| Campo | Descrição |
+|---|---|
+| `id_modalidade` | Identificador da modalidade |
+| `nome` | Nome da modalidade |
 
-Campos:
+### `consultores`
 
-- `id_modalidade` - identificador da modalidade
-- `nome` - nome da modalidade
+Armazena os consultores responsáveis pelos atendimentos.
 
-### consultores
-
-Tabela responsável por armazenar os consultores responsáveis pelo atendimento.
-
-Campos:
-
-- `id_consultor` - identificador do consultor
-- `nome` - nome do consultor
+| Campo | Descrição |
+|---|---|
+| `id_consultor` | Identificador do consultor |
+| `nome` | Nome do consultor |
 
 ## Relacionamentos
 
-A tabela `visitantes` é a tabela central do banco e possui relacionamento com
+A tabela `visitantes` ocupa a posição central no banco de dados e possui dois relacionamentos:
 
-- `modalidades`, através de `modalidade_id`
-- `consultores`, através de `consultor_id`
+- `modalidade_id` referencia a tabela `modalidades`;
+- `consultor_id` referencia a tabela `consultores`.
 
-## Objetivos do projeto
+## Indicadores analisados
 
-O sistema permite analisar:
+Com os dados registrados, é possível acompanhar:
 
-- quantidade de aulas experimentais
-- quantidade de matrículas
-- taxa de conversão
-- desempenho por consultor
-- desempenho por modalidade
-- tempo médio entre visita e matrícula
+- número de aulas experimentais;
+- número de matrículas;
+- taxa de conversão;
+- desempenho por consultor;
+- desempenho por modalidade;
+- tempo médio entre a visita e a matrícula.
 
-## Funcionalidade
+## Como funciona
 
-Os consultores utilizam uma interface desenvolvida em Python para cadastrar os visitantes.
+Os consultores cadastram os visitantes em uma interface desenvolvida em HTML e CSS. O sistema envia os dados ao banco MySQL, onde eles ficam disponíveis para análise por meio de consultas SQL.
 
-Os dados são enviados para o banco MySQL e podem ser analisados por meio de consultas SQL.
+## Uso em ambiente real
 
-## Status
+O projeto foi desenvolvido e implementado em uma academia e continua em uso. A empresa formalizou sua utilização em uma declaração de implementação.
 
-Projeto aplicado em ambiente real de academia e sendo utilizado até o presente momento&#x20;
-
-## Aplicação em ambiente real
-
-O projeto foi desenvolvido e implementado em uma academia e está atualmente em utilização.
-
-A implementação do sistema foi formalmente declarada pela empresa.
 
 [📄 Ver declaração de implementação](docs/projeto_academia.sql.pdf)
